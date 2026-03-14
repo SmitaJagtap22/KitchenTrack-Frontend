@@ -3,7 +3,7 @@ import axios from "axios";
 // Base URL should be the server root.
 // Individual calls will include the `/api/...` prefix.
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:5000",
+  baseURL: process.env.REACT_APP_API_URL || "http://localhost:5000",
 });
 
 api.interceptors.request.use((config) => {

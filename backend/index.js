@@ -4,7 +4,11 @@ const cors = require("cors");
 const { initSchedulers, triggerAllReminders } = require("./utils/scheduler");
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://kitchentrack.vercel.app'],
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 const connectDB = require("./config/db");
 connectDB();
 
